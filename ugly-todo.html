@@ -21,6 +21,20 @@
   <!-- application code -->
   <script type="text/javascript">
     userbase.init({ appId: 'Yc4204c8b-59f2-47f3-b7d5-f4d6a53d6828' })
+
+    // handle the form submission
+ function handleSignUp(e) {
+    e.preventDefault()
+
+    const username = document.getElementById('signup-username').value
+    const password = document.getElementById('signup-password').value
+
+    userbase.signUp({ username, password, rememberMe: 'none' })
+      .then((user) => alert('You signed up!'))
+      .catch((e) => document.getElementById('signup-error').innerHTML = e)
+  }
+
+  document.getElementById('signup-form').addEventListener('submit', handleSignUp)
   </script>
 </body>
 </html>
