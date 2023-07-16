@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Ugliest To-Do</title>
+  <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
 </head>
 
 <body>
+  <!-- Auth View -->
+  <div id="auth-view">
+    <h1>Create an account</h1>
+    <form id="signup-form">
+      <input id="signup-username" type="text" required placeholder="Username">
+      <input id="signup-password" type="password" required placeholder="Password">
+      <input type="submit" value="Create an account">
+    </form>
+    <div id="signup-error"></div>
+  </div>
+  
   <!-- application code -->
   <script type="text/javascript">
+    userbase.init({ appId: 'Yc4204c8b-59f2-47f3-b7d5-f4d6a53d6828' })
   </script>
 </body>
 </html>
