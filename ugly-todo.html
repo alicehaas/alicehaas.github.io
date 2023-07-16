@@ -58,11 +58,19 @@
     const password = document.getElementById('login-password').value
 
     userbase.signIn({ username, password, rememberMe: 'none' })
-      .then((user) => alert('You signed in!'))
+      .then((user) => showTodos(user.username))
       .catch((e) => document.getElementById('login-error').innerHTML = e)
   }
+    
+  function showTodos(username) {
+    document.getElementById('auth-view').style.display = 'none'
+    document.getElementById('todo-view').style.display = 'block'
+    document.getElementById('username').innerHTML = username
+  }
+    
     document.getElementById('login-form').addEventListener('submit', handleLogin)
     document.getElementById('signup-form').addEventListener('submit', handleSignUp)
+    document.getElementById('todo-view').style.display = 'none'
   </script>
 </body>
 </html>
