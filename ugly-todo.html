@@ -9,6 +9,14 @@
 <body>
   <!-- Auth View -->
   <div id="auth-view">
+    <h1>Login</h1>
+    <form id="login-form">
+      <input id="login-username" type="text" required placeholder="Username">
+      <input id="login-password" type="password" required placeholder="Password">
+      <input type="submit" value="Sign in">
+    </form>
+    <div id="login-error"></div>
+    
     <h1>Create an account</h1>
     <form id="signup-form">
       <input id="signup-username" type="text" required placeholder="Username">
@@ -34,7 +42,19 @@
       .catch((e) => document.getElementById('signup-error').innerHTML = e)
   }
 
-  document.getElementById('signup-form').addEventListener('submit', handleSignUp)
+      // handle login
+  function handleLogin(e) {
+    e.preventDefault()
+
+    const username = document.getElementById('login-username').value
+    const password = document.getElementById('login-password').value
+
+    userbase.signIn({ username, password, rememberMe: 'none' })
+      .then((user) => alert('You signed in!'))
+      .catch((e) => document.getElementById('login-error').innerHTML = e)
+  }
+    document.getElementById('login-form').addEventListener('submit', handleLogin)
+    document.getElementById('signup-form').addEventListener('submit', handleSignUp)
   </script>
 </body>
 </html>
